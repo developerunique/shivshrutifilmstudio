@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shivshruti Films Studio</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gotu&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FB923C', /* Orange/Gold from card */
+                        secondary: '#111827', /* Dark / Black */
+                        accent: '#FCD34D', /* Lighter Yellow/Gold */
+                        light: '#F3F4F6',
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Gotu', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* Custom styles for things Tailwind doesn't cover easily */
+        html { scroll-behavior: smooth; }
+        .hero-slide {
+            transition: opacity 1s ease-in-out;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-900 antialiased selection:bg-primary selection:text-white">
+
+    <!-- Header -->
+    <header id="main-header" class="fixed w-full top-0 left-0 z-50 transition-all duration-300 py-4 bg-transparent">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <!-- Logo Section -->
+            <a href="#hero" class="flex items-center gap-2 group">
+                <div id="logo-icon" class="w-12 h-12 rounded-full border-2 border-primary text-primary flex items-center justify-center transition-colors">
+                     <i class="fas fa-video text-xl"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span id="logo-text" class="font-serif text-2xl font-bold leading-none tracking-wide text-white">
+                        SHIVSHRUTI
+                    </span>
+                    <span class="text-xs font-sans tracking-[0.2em] font-semibold text-primary">
+                        FILMS STUDIO
+                    </span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:block">
+                <ul class="flex space-x-8">
+                    <li><a href="#about" class="nav-link text-sm uppercase font-bold tracking-wider transition-colors hover:text-primary text-white">About</a></li>
+                    <li><a href="#services" class="nav-link text-sm uppercase font-bold tracking-wider transition-colors hover:text-primary text-white">Services</a></li>
+                    <li><a href="#portfolio" class="nav-link text-sm uppercase font-bold tracking-wider transition-colors hover:text-primary text-white">Portfolio</a></li>
+                    <li><a href="#contact" class="nav-link text-sm uppercase font-bold tracking-wider transition-colors hover:text-primary text-white">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-btn" class="md:hidden text-2xl text-white">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Nav Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-secondary/95 z-40 flex flex-col items-center justify-center transition-transform duration-300 translate-x-full md:hidden">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-3xl">
+                <i class="fas fa-times"></i>
+            </button>
+            <ul class="text-center space-y-8">
+                <li><a href="#about" class="mobile-link text-white text-2xl font-serif font-bold hover:text-primary">About</a></li>
+                <li><a href="#services" class="mobile-link text-white text-2xl font-serif font-bold hover:text-primary">Services</a></li>
+                <li><a href="#portfolio" class="mobile-link text-white text-2xl font-serif font-bold hover:text-primary">Portfolio</a></li>
+                <li><a href="#contact" class="mobile-link text-white text-2xl font-serif font-bold hover:text-primary">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden bg-black">
+            <!-- Slides -->
+            <div id="hero-slider" class="absolute inset-0 w-full h-full">
+                <!-- Slide 1 -->
+                <div class="hero-slide absolute inset-0 bg-cover bg-center opacity-100" style="background-image: url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=2071&auto=format&fit=crop');"></div>
+                <!-- Slide 2 -->
+                <div class="hero-slide absolute inset-0 bg-cover bg-center opacity-0" style="background-image: url('https://images.unsplash.com/photo-1585644198533-337f7690b638?q=80&w=2070&auto=format&fit=crop');"></div>
+                <!-- Slide 3 -->
+                <div class="hero-slide absolute inset-0 bg-cover bg-center opacity-0" style="background-image: url('https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?q=80&w=2056&auto=format&fit=crop');"></div>
+                <!-- Slide 4 -->
+                <div class="hero-slide absolute inset-0 bg-cover bg-center opacity-0" style="background-image: url('https://images.unsplash.com/photo-1533488765986-dfa2a9939acd?q=80&w=1974&auto=format&fit=crop');"></div>
+            </div>
+            
+            <!-- Overlay -->
+            <div class="absolute inset-0 bg-black/60 z-10"></div>
+
+            <!-- Content -->
+            <div class="relative z-20 text-center text-white px-4 max-w-4xl">
+                <div class="mb-6 inline-block p-2 border-2 border-primary rounded-full animate-bounce">
+                    <i class="fas fa-clapperboard text-2xl text-primary"></i>
+                </div>
+                <h1 class="font-serif text-5xl md:text-7xl font-bold mb-4 leading-tight">
+                  Crafting Visual <span class="text-primary">Masterpieces</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+                  TV Serials • Films • Ads • Print Shoots
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#contact" class="px-8 py-3 bg-primary text-white font-bold rounded hover:bg-orange-600 transition-transform hover:-translate-y-1">
+                    Book A Shoot
+                    </a>
+                    <a href="#services" class="px-8 py-3 border-2 border-white text-white font-bold rounded hover:bg-white hover:text-black transition-all">
+                    Our Services
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                <div class="relative">
+                    <img 
+                        src="https://images.unsplash.com/photo-1533512930330-4ac257c86793?q=80&w=1887&auto=format&fit=crop" 
+                        alt="Studio Setup" 
+                        class="rounded-lg shadow-2xl z-10 relative"
+                    />
+                    <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-primary rounded-lg -z-0 hidden md:block"></div>
+                    <div class="absolute -top-6 -left-6 w-24 h-24 border-4 border-secondary rounded-lg -z-0 hidden md:block"></div>
+                </div>
+                <div>
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold text-secondary mb-6">
+                        About <span class="text-primary">Shivshruti</span>
+                    </h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Welcome to Shivshruti Films Studio. Led by <strong>Pallavi Patil</strong>, we are a premier production house dedicated to bringing stories to life. Whether it is a large-scale TV serial production, a cinematic feature film, a captivating advertisement, or a high-fashion print shoot, we bring technical excellence and artistic vision to every project.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 mt-8">
+                        <div class="p-4 bg-light rounded-lg border-l-4 border-primary">
+                            <h3 class="font-bold text-xl mb-1">Experience</h3>
+                            <p class="text-sm text-gray-500">Years of Industry Presence</p>
+                        </div>
+                        <div class="p-4 bg-light rounded-lg border-l-4 border-secondary">
+                            <h3 class="font-bold text-xl mb-1">Quality</h3>
+                            <p class="text-sm text-gray-500">4K Cinema & Broadcast Standards</p>
+                        </div>
+                    </div>
+                    <div class="mt-8 flex items-center gap-4">
+                        <div class="text-sm font-bold text-gray-500 uppercase tracking-widest">Connect with Pallavi Patil</div>
+                        <div class="h-px bg-gray-300 flex-grow"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-24 bg-secondary text-white">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="font-serif text-4xl font-bold mb-4">Our Services</h2>
+                    <div class="w-24 h-1 bg-primary mx-auto"></div>
+                    <p class="mt-4 text-gray-400">Comprehensive media solutions under one roof</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Service 1 -->
+                    <div class="group bg-gray-800 rounded-lg overflow-hidden hover:-translate-y-2 transition-transform duration-300">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1522045235894-34800fb73315?auto=format&fit=crop&q=80&w=1000" alt="TV Serials" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"/>
+                        </div>
+                        <div class="p-6 relative">
+                            <div class="absolute -top-8 right-6 w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                                <i class="fas fa-tv text-2xl text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 mt-4">TV Serials</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">Complete production services for daily soaps and web series, from pre-production to post.</p>
+                        </div>
+                    </div>
+                    <!-- Service 2 -->
+                    <div class="group bg-gray-800 rounded-lg overflow-hidden hover:-translate-y-2 transition-transform duration-300">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=1000" alt="Films" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"/>
+                        </div>
+                        <div class="p-6 relative">
+                            <div class="absolute -top-8 right-6 w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                                <i class="fas fa-film text-2xl text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 mt-4">Films</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">Feature film production support, including casting, location scouting, and technical crew.</p>
+                        </div>
+                    </div>
+                    <!-- Service 3 -->
+                    <div class="group bg-gray-800 rounded-lg overflow-hidden hover:-translate-y-2 transition-transform duration-300">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1000" alt="Ads" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"/>
+                        </div>
+                        <div class="p-6 relative">
+                            <div class="absolute -top-8 right-6 w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                                <i class="fas fa-bullhorn text-2xl text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 mt-4">Ads / Commercials</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">High-impact commercials and digital ads designed to elevate brand identity.</p>
+                        </div>
+                    </div>
+                    <!-- Service 4 -->
+                    <div class="group bg-gray-800 rounded-lg overflow-hidden hover:-translate-y-2 transition-transform duration-300">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&q=80&w=1000" alt="Print Shoots" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"/>
+                        </div>
+                        <div class="p-6 relative">
+                            <div class="absolute -top-8 right-6 w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                                <i class="fas fa-camera text-2xl text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 mt-4">Print Shoots</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">Fashion, product, and editorial photography for magazines, catalogs, and billboards.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="py-24 bg-light">
+            <div class="max-w-7xl mx-auto px-6">
+                <h2 class="font-serif text-4xl font-bold text-center text-secondary mb-12">Recent Work</h2>
+                <div class="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
+                    <div class="break-inside-avoid rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+                        <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1000&auto=format&fit=crop" class="w-full h-auto hover:scale-105 transition-transform duration-500" alt="Work 1">
+                    </div>
+                    <div class="break-inside-avoid rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+                        <img src="/camera.jpg" class="w-full h-auto hover:scale-105 transition-transform duration-500" alt="Work 2">
+                    </div>
+                    <div class="break-inside-avoid rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+                        <img src="https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=1000&auto=format&fit=crop" class="w-full h-auto hover:scale-105 transition-transform duration-500" alt="Work 3">
+                    </div>
+                    <div class="break-inside-avoid rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+                        <img src="/film.jpg" class="w-full h-auto hover:scale-105 transition-transform duration-500" alt="Work 4">
+                    </div>
+                    <div class="break-inside-avoid rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+                        <img src="https://images.unsplash.com/photo-1601506521937-0121a7fc2a6b?q=80&w=1000&auto=format&fit=crop" class="w-full h-auto hover:scale-105 transition-transform duration-500" alt="Work 5">
+                    </div>
+                    <div class="break-inside-avoid rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+                        <img src="https://images.unsplash.com/photo-1589903308904-1010c2294adc?q=80&w=1000&auto=format&fit=crop" class="w-full h-auto hover:scale-105 transition-transform duration-500" alt="Work 6">
+                    </div>
+                </div>
+                <div class="text-center mt-12">
+                    <a href="#" target="_blank" rel="noreferrer" class="inline-flex items-center text-primary font-bold hover:text-secondary transition-colors">
+                        View Full Portfolio <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 bg-white relative">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="bg-secondary text-white rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row">
+                    
+                    <!-- Contact Info -->
+                    <div class="p-10 md:w-1/2 flex flex-col justify-between relative overflow-hidden">
+                        <!-- Decorative circle -->
+                        <div class="absolute -top-20 -left-20 w-64 h-64 bg-primary/20 rounded-full blur-3xl"></div>
+
+                        <div>
+                            <h2 class="font-serif text-4xl font-bold mb-2">Get in Touch</h2>
+                            <p class="text-gray-400 mb-8">Ready to start your next big production? Contact Shivshruti Films Studio today.</p>
+                            
+                            <div class="space-y-6">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary flex-shrink-0">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg">Pallavi Patil</h4>
+                                        <p class="text-gray-400 text-sm">Owner / Lead</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary flex-shrink-0">
+                                        <i class="fas fa-phone-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg">Phone</h4>
+                                        <p class="text-gray-400 hover:text-white transition-colors"><a href="tel:9011492929">9011492929</a></p>
+                                        <p class="text-gray-400 hover:text-white transition-colors"><a href="tel:9922146088">9922146088</a></p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary flex-shrink-0">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg">Email</h4>
+                                        <p class="text-gray-400 break-all"><a href="mailto:info@shivshrutifilmstudio.com">info@shivshrutifilmstudio.com</a></p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary flex-shrink-0">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg">Studio Address</h4>
+                                        <p class="text-gray-400">Opp. Ador Company,<br/>Ramnagar, Chinchwad-19</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-10 flex gap-4">
+                            <a href="https://instagram.com/shivshrutistudio" class="w-10 h-10 rounded bg-gray-700 hover:bg-primary flex items-center justify-center transition-colors">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded bg-gray-700 hover:bg-primary flex items-center justify-center transition-colors">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded bg-gray-700 hover:bg-primary flex items-center justify-center transition-colors">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Map / Form -->
+                    <div class="p-10 md:w-1/2 bg-gray-50 border-l border-gray-200 text-secondary">
+                        <form class="space-y-4" onsubmit="event.preventDefault();">
+                            <h3 class="text-2xl font-bold font-serif mb-6">Send a Message</h3>
+                            
+                            <div class="grid grid-cols-2 gap-4">
+                                <input type="text" placeholder="Name" class="w-full p-3 bg-white border border-gray-300 rounded focus:border-primary outline-none" />
+                                <input type="text" placeholder="Phone" class="w-full p-3 bg-white border border-gray-300 rounded focus:border-primary outline-none" />
+                            </div>
+                            <input type="email" placeholder="Email" class="w-full p-3 bg-white border border-gray-300 rounded focus:border-primary outline-none" />
+                            <select class="w-full p-3 bg-white border border-gray-300 rounded focus:border-primary outline-none text-gray-500">
+                                <option>Service Interested In</option>
+                                <option>TV Serial Production</option>
+                                <option>Film Production</option>
+                                <option>Advertisement</option>
+                                <option>Print Shoot</option>
+                            </select>
+                            <textarea rows={4} placeholder="Project Details" class="w-full p-3 bg-white border border-gray-300 rounded focus:border-primary outline-none"></textarea>
+                            
+                            <button class="w-full py-4 bg-secondary text-white font-bold tracking-widest hover:bg-primary transition-colors uppercase">
+                                Submit Inquiry
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-8 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="text-center md:text-left">
+                <p class="font-serif text-lg font-bold text-primary">Shivshruti Films Studio</p>
+                <p class="text-xs text-gray-500">© 2025 All Rights Reserved.</p>
+            </div>
+            <div class="flex items-center gap-6 text-sm text-gray-400">
+                <a href="https://balajifilmandmedia.com" class="hover:text-primary">Balaji Film & Media</a>
+                <span>|</span>
+                <a href="#" class="hover:text-primary">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.getElementById('main-header');
+            const logoText = document.getElementById('logo-text');
+            const logoIcon = document.getElementById('logo-icon');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const closeMenuBtn = document.getElementById('close-menu-btn');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            const heroSlider = document.getElementById('hero-slider');
+            const slides = heroSlider.querySelectorAll('.hero-slide');
+            
+            // --- Sticky Header Logic ---
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('bg-white', 'shadow-lg', 'py-2');
+                    header.classList.remove('bg-transparent', 'py-4');
+                    
+                    logoText.classList.remove('text-white');
+                    logoText.classList.add('text-secondary');
+                    
+                    logoIcon.classList.remove('border-primary', 'text-primary');
+                    logoIcon.classList.add('border-secondary', 'text-secondary');
+                    
+                    mobileMenuBtn.classList.remove('text-white');
+                    mobileMenuBtn.classList.add('text-secondary');
+                    
+                    navLinks.forEach(link => {
+                        link.classList.remove('text-white');
+                        link.classList.add('text-secondary');
+                    });
+                } else {
+                    header.classList.add('bg-transparent', 'py-4');
+                    header.classList.remove('bg-white', 'shadow-lg', 'py-2');
+                    
+                    logoText.classList.add('text-white');
+                    logoText.classList.remove('text-secondary');
+                    
+                    logoIcon.classList.add('border-primary', 'text-primary');
+                    logoIcon.classList.remove('border-secondary', 'text-secondary');
+                    
+                    mobileMenuBtn.classList.add('text-white');
+                    mobileMenuBtn.classList.remove('text-secondary');
+                    
+                    navLinks.forEach(link => {
+                        link.classList.add('text-white');
+                        link.classList.remove('text-secondary');
+                    });
+                }
+            });
+
+            // --- Mobile Menu Logic ---
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.remove('translate-x-full');
+                mobileMenu.classList.add('translate-x-0');
+            });
+
+            closeMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+                mobileMenu.classList.remove('translate-x-0');
+            });
+            
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('translate-x-full');
+                    mobileMenu.classList.remove('translate-x-0');
+                });
+            });
+
+            // --- Hero Slider Logic ---
+            let currentSlide = 0;
+            setInterval(() => {
+                // Hide current
+                slides[currentSlide].classList.remove('opacity-100');
+                slides[currentSlide].classList.add('opacity-0');
+                
+                // Calculate next
+                currentSlide = (currentSlide + 1) % slides.length;
+                
+                // Show next
+                slides[currentSlide].classList.remove('opacity-0');
+                slides[currentSlide].classList.add('opacity-100');
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
